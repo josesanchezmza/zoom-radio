@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "/zoom-radio/zoomRadio",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
