@@ -8,6 +8,10 @@ import {environment} from '../../environments/environment';
 })
 export class Tab1Page {
   radioURL = environment.radioUrl;
+  isStreaming = false;
   constructor() {}
 
+  playRadio() {
+    this.isStreaming = !this.isStreaming;
+  }
 }

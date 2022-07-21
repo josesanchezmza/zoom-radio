@@ -1,66 +1,37 @@
-<!--<ion-header [translucent]="true">-->
-<!--  <ion-toolbar>-->
-<!--    <ion-title>-->
-<!--      Tab 1-->
-<!--    </ion-title>-->
-<!--  </ion-toolbar>-->
-<!--</ion-header>-->
-
-
-
-
 <ion-content [fullscreen]="true">
-
-  <ion-grid>
-    <ion-row>
-
-      <a class="play-btn" href="#"></a>
-
-
-      <audio #player controls>
-        <!--      <source src="http://109.169.76.104:22189/;.aac" type="audio/aac">-->
-        <!--      <source src="http://109.169.76.104:22189/;.mp3" type="audio/mpeg">-->
-        <source [src]="radioURL+'.aac'" type="audio/aac">
-        <source [src]="radioURL+'.mp3'" type="audio/mpeg">
-      </audio>
-    </ion-row>
-  </ion-grid>
-
-
-
-<ion-card>
-  <ion-card-header>
-    <audio #player controls>
-<!--      <source src="http://109.169.76.104:22189/;.aac" type="audio/aac">-->
-<!--      <source src="http://109.169.76.104:22189/;.mp3" type="audio/mpeg">-->
-      <source [src]="radioURL+'.aac'" type="audio/aac">
-      <source [src]="radioURL+'.mp3'" type="audio/mpeg">
-    </audio>
-    <div>
-      <ion-button (click)="player.play()">PLAY</ion-button>
-      <ion-button (click)="player.pause()">PAUSE</ion-button>
-      <ion-button (click)="player.muted = !player.muted">MUTE</ion-button>
-      <ion-range [ticks]="true" [snaps]="true" [min]="0" [max]="10"></ion-range>
-      <ion-content>
-<!--        <ion-range (ionChange)="onIonChange($event)"></ion-range>-->
-<!--        <ion-label>ionChange emitted value: {{ lastEmittedValue }}</ion-label>-->
-      </ion-content>
-      <ion-button (click)="player.volume = player.volume + 0.1">Vol +</ion-button>
-      <ion-button (click)="player.volume = player.volume - 0.1">Vol -</ion-button>
-
-      <!--    <button onclick="player.pause()">Pause</button>-->
-      <!--    <button onclick="player.volume += 0.1">Vol +</button>-->
-      <!--    <button onclick="player.volume -= 0.1">Vol -</button>-->
+  <div class="flex-container">
+    <div class="player-container">
+            <app-play-button [isStreaming]="isStreaming" (btnClick)="playRadio()"></app-play-button>
     </div>
-  </ion-card-header>
-</ion-card>
+    <div class="contac-container">
+      <ion-grid>
+        <ion-row>
+          <ion-col size-xs="12" size-md="4">
+            <a href="https://t.me/ZOOMRADIOMLG" target="_blank"><img src="assets/icon/telegram.svg" alt=""> TELEGRAM</a>
+          </ion-col>
+          <ion-col size-xs="12" size-md="4">
+            <div>TELEFONO</div>
+          </ion-col>
+          <ion-col size-xs="12" size-md="4">
+            <div>OTROS</div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+
+  </div>
+
+            <!--  <audio #player controls>-->
+            <!--    &lt;!&ndash;      <source src="http://109.169.76.104:22189/;.aac" type="audio/aac">&ndash;&gt;-->
+            <!--    &lt;!&ndash;      <source src="http://109.169.76.104:22189/;.mp3" type="audio/mpeg">&ndash;&gt;-->
+            <!--    <source [src]="radioURL+'.aac'" type="audio/aac">-->
+            <!--    <source [src]="radioURL+'.mp3'" type="audio/mpeg">-->
+            <!--  </audio>-->
+            <!--  <ion-button (click)="player.play()">PLAY</ion-button>-->
+            <!--  <ion-button (click)="player.pause()">PAUSE</ion-button>-->
+            <!--  <ion-button (click)="player.muted = !player.muted">MUTE</ion-button>-->
+            <!--  <ion-range [ticks]="true" [snaps]="true" [min]="0" [max]="10"></ion-range>-->
 
 
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
 </ion-content>
