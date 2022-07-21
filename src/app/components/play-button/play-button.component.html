@@ -1,11 +1,7 @@
-<!--<a class="play-btn" href="#">-->
-<!--  &lt;!&ndash;        <ion-icon name="play"></ion-icon>&ndash;&gt;-->
-<!--  <ion-icon name="mic"></ion-icon>-->
-<!--  &lt;!&ndash;        <ion-icon name="radio"></ion-icon>&ndash;&gt;-->
-<!--</a>-->
-
-<!--[ngClass]="{'streaming' : isStreaming}-->
-<button class="play-btn">
-  <ion-icon name="mic"></ion-icon>
-<div class="circle"></div>
+<button class="play-btn" (click)="onClick()">
+  <ion-icon [name]="setIcon(isStreaming)"></ion-icon>
+  <div *ngIf="isStreaming">
+    <div class="pulse-wave"></div>
+    <div class="pulse-wave-2"></div>
+  </div>
 </button>

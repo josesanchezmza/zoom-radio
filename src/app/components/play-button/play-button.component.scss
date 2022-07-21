@@ -1,4 +1,5 @@
 .play-btn {
+  opacity: 0.9;
   ion-icon{
     font-size: 40px;
     color: white;
@@ -6,40 +7,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-
   height:100px;
   width:100px;
   border-radius:50%;
   background-color:red;
-
   position:relative;
-  //top:100px;
-  //left:300px;
-
-  //-webkit-transition:height .25s ease, width .25s ease;
-  //transition:height .25s ease, width .25s ease;
-  //
-  //-webkit-transform:translate(-50%,-50%);
-  //transform:translate(-50%,-50%);
 }
 
 .play-btn:hover{
-  //height:120px;
-  //width:120px;
+  opacity: 1;
 }
 
-//.play-btn:before,
-//.play-btn:after {
-//  content:'';
-//  display:block;
-//  position:absolute;
-//  top:0; right:0; bottom:0; left:0;
-//  border-radius:50%;
-//  border:1px solid red;
-//}
-
-.circle {
+.pulse-wave,
+.pulse-wave-2 {
   content:'';
   display:block;
   position:absolute;
@@ -48,25 +28,13 @@
   border:1px solid red;
 }
 
-//.play-btn:before {
-//  -webkit-animation: ripple 2s linear infinite;
-//  animation: ripple 2s linear infinite;
-//}
-//.play-btn:after {
-//  -webkit-animation: ripple 2s linear 1s infinite;
-//  animation: ripple 2s linear 1s infinite;
-//}
-.circle {
+.pulse-wave {
+  -webkit-animation: ripple 2s linear infinite;
+  animation: ripple 2s linear infinite;
+}
+.pulse-wave-2 {
   -webkit-animation: ripple 2s linear 1s infinite;
   animation: ripple 2s linear 1s infinite;
-}
-
-.play-btn:hover:before,
-.play-btn:hover:after {
-  .circle {
-    -webkit-animation: none;
-    animation: none;
-  }
 }
 
 @-webkit-keyframes ripple{
