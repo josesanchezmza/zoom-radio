@@ -25,19 +25,19 @@
 }
 
 .play-btn:hover{
-  height:120px;
-  width:120px;
+  //height:120px;
+  //width:120px;
 }
 
-.play-btn:before,
-.play-btn:after {
-  content:'';
-  display:block;
-  position:absolute;
-  top:0; right:0; bottom:0; left:0;
-  border-radius:50%;
-  border:1px solid red;
-}
+//.play-btn:before,
+//.play-btn:after {
+//  content:'';
+//  display:block;
+//  position:absolute;
+//  top:0; right:0; bottom:0; left:0;
+//  border-radius:50%;
+//  border:1px solid red;
+//}
 
 .circle {
   content:'';
@@ -48,19 +48,25 @@
   border:1px solid red;
 }
 
-.play-btn:before {
-  -webkit-animation: ripple 2s linear infinite;
-  animation: ripple 2s linear infinite;
-}
-.play-btn:after {
+//.play-btn:before {
+//  -webkit-animation: ripple 2s linear infinite;
+//  animation: ripple 2s linear infinite;
+//}
+//.play-btn:after {
+//  -webkit-animation: ripple 2s linear 1s infinite;
+//  animation: ripple 2s linear 1s infinite;
+//}
+.circle {
   -webkit-animation: ripple 2s linear 1s infinite;
   animation: ripple 2s linear 1s infinite;
 }
 
 .play-btn:hover:before,
 .play-btn:hover:after {
-  -webkit-animation: none;
-  animation: none;
+  .circle {
+    -webkit-animation: none;
+    animation: none;
+  }
 }
 
 @-webkit-keyframes ripple{
