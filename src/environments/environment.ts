@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  radioUrl: 'http://109.169.76.104:22189/'
+  radioURL: 'http://78.129.185.84:21254/;',
+  telegramURL: '',
+  phoneNumber: '+54 9 260 423 8630'
 };
 
 /*
