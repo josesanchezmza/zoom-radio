@@ -1,7 +1,4 @@
-<button class="play-btn" (click)="onClick()">
-  <ion-icon [name]="setIcon(isStreaming)"></ion-icon>
-  <div *ngIf="isStreaming">
-    <div class="pulse-wave"></div>
-    <div class="pulse-wave-2"></div>
-  </div>
-</button>
+<a class="play-btn" (click)="onClick()">
+  <lottie-player *ngIf="!isStreaming" src="https://assets3.lottiefiles.com/packages/lf20_rsbtxwqu.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+  <lottie-player *ngIf="isStreaming" src="https://assets4.lottiefiles.com/packages/lf20_egfrW9.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+</a>

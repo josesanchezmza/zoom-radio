@@ -14,12 +14,4 @@ export class PlayButtonComponent {
   onClick() {
     this.btnClick.emit();
   }
-
-  setIcon(streaming){
-    if(streaming){
-      return 'radio';
-    } else {
-      return 'play';
-    }
-  }
 }
