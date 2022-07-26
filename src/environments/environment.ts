@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  radioURL: 'http://78.129.185.84:21254/;',
-  telegramURL: '',
+  radioURL: 'http://109.169.76.104:16285/;',
+  telegramURL: 'https://t.me/ZOOMRADIOMLG',
   phoneNumber: '+54 9 260 423 8630'
 };
 
@@ -17,3 +17,7 @@ export const environment = {
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+// <source src="http://shaincast.caster.fm:34675/listen.mp3?authn762313e0c3dd57eb5d95882c847cf8b4" type="audio/mpeg">
+// <source src="http://78.129.185.84:21254/;.aac" type="audio/aac">
+// <source src="http://78.129.185.84:21254/;.mp3" type="audio/mpeg">

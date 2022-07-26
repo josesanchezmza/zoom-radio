@@ -1,57 +1,71 @@
 ion-content {
-  --background: url(../../assets/wp4018825.webp) no-repeat center/cover fixed;
+  //--background: url(../../assets/wp4018825.webp) no-repeat center/cover fixed;
 }
 
-.flex-container {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.lottie-back {
+  position: absolute;
+  top: -10px;
+  transform: rotate(90deg) scale(2,1.8);
+  z-index: -9;
 }
-.player-container {
-  height: 80%;
-  padding: 0;
-  margin: 0;
+
+.row-align-center{
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-content: center;
 }
-.contac-container {
+
+.row1{
+  height: 30%;
+  align-content: end;
+  }
+
+.row2{
+  height: 40%;
+  }
+
+.row3{
+  height: 10%;
+  }
+
+.row4{
   height: 20%;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
- ion-button{
-   .contact-button {
-      min-width: 300px;
-   }
- }
+  }
 
-ion-button[shape=circle] {
-  --border-radius: 50%;
-  width: 56px;
-  height: 56px;
+ion-grid{
+   height: 100%;
 }
 
-.volume-container{
-  max-width: 400px;
+.volume {
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   ion-chip{
     width: 100%;
   }
-
   .mute-button{
-    margin: 10px 0;
+    position: absolute;
     width: 50px;
     height: 50px;
-    margin-right: -20px;
     z-index: 9;
+    ion-icon{
+      margin: -5px;
+      font-size: 28px;
+    }
   }
+}
+
+.title  {
+  font-family: THE_BOLD_FONT, serif;
+  font-size: 70px;
+  text-align: center;
+}
+
+.telegram-img{
+  height: 22px;
+  width: 22px;
+  margin-inline: 5px;
+}
+
+.call-icon{
+  margin-inline: 5px;
 }

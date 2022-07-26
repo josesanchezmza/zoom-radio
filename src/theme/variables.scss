@@ -234,3 +234,16 @@
     --ion-card-background: #1e1e1e;
   }
 }
+
+@font-face {
+  font-family: 'THE_BOLD_FONT';
+  src: url('../assets/fonts/THEBOLDFONT.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ion-button[shape=circle] {
+  --border-radius: 50%;
+  width: 56px;
+  height: 56px;
+}
