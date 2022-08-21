@@ -1,11 +1,12 @@
 ion-content {
   //--background: url(../../assets/wp4018825.webp) no-repeat center/cover fixed;
+  --background: #1e2023;
 }
 
 .lottie-back {
   position: absolute;
-  top: -10px;
-  transform: rotate(90deg) scale(2,1.8);
+  top: 0px;
+  transform: rotate(90deg) scale(2.1,1.8);
   z-index: -9;
 }
 
@@ -15,7 +16,7 @@ ion-content {
 }
 
 .row1{
-  height: 30%;
+  height: 40%;
   align-content: end;
   }
 
@@ -23,9 +24,9 @@ ion-content {
   height: 40%;
   }
 
-.row3{
-  height: 10%;
-  }
+//.row3{
+//  height: 10%;
+//  }
 
 .row4{
   height: 20%;
@@ -58,6 +59,7 @@ ion-grid{
   font-family: THE_BOLD_FONT, serif;
   font-size: 70px;
   text-align: center;
+  color: white;
 }
 
 .telegram-img{
