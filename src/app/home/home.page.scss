@@ -17,22 +17,26 @@ ion-content {
 .row1{
   height: 30%;
   align-content: end;
+  ion-img{
+    width: 300px;
   }
+}
 
 .row2{
   height: 40%;
-  }
+}
 
 .row3{
   height: 10%;
-  }
+}
 
 .row4{
   height: 20%;
-  }
+}
 
 ion-grid{
-   height: 100%;
+  height: 100%;
+  background: #1e2023;
 }
 
 .volume {

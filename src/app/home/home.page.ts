@@ -1,14 +1,15 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {environment} from '../../environments/environment';
-import {RangeCustomEvent} from '@ionic/angular';
 import {RangeValue} from '@ionic/core';
+import {RangeCustomEvent} from '@ionic/angular';
 
 @Component({
-  selector: 'app-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  selector: 'app-home',
+  templateUrl: './home.page.html',
+  styleUrls: ['./home.page.scss'],
 })
-export class Tab1Page {
+export class HomePage {
+
   @ViewChild('player') player: ElementRef;
   isStreaming = false;
   isMuted = false;
@@ -47,4 +48,5 @@ export class Tab1Page {
       return 'volume-medium-outline';
     }
   }
+
 }
