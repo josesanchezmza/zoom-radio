@@ -6,7 +6,7 @@ export const environment = {
   production: false,
   radioURL: 'http://109.169.76.104:16285/;',
   telegramURL: 'https://t.me/ZOOMRADIOMLG',
-  phoneNumber: '+54 9 260 423 8630'
+  phoneNumber: '+54 9 260 423 8630',
 };
 
 /*
