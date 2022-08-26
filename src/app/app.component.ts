@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {}
+
+  onClick(){
+    console.log('link presionado');
+  }
 }
