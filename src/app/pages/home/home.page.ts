@@ -1,7 +1,7 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {environment} from "../../../environments/environment";
-import {RangeValue} from "@ionic/core";
-import {RangeCustomEvent} from "@ionic/angular";
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { RangeValue } from '@ionic/core';
+import { RangeCustomEvent } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,6 @@ import {RangeCustomEvent} from "@ionic/angular";
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage {
-
   @ViewChild('player') player: ElementRef;
   isStreaming = false;
   isMuted = false;
@@ -18,12 +17,11 @@ export class HomePage {
   phoneNumber = environment.phoneNumber;
   lastEmittedValue: RangeValue;
 
-  constructor() {
-  }
+  constructor() {}
 
   playRadio() {
     this.isStreaming = !this.isStreaming;
-    if (this.isStreaming){
+    if (this.isStreaming) {
       this.player.nativeElement.play();
     } else {
       this.player.nativeElement.pause();
@@ -41,12 +39,11 @@ export class HomePage {
     this.player.nativeElement.muted = this.isMuted;
   }
 
-  setIcon(isMuted){
-    if(isMuted){
+  setIcon(isMuted) {
+    if (isMuted) {
       return 'volume-mute-outline';
     } else {
       return 'volume-medium-outline';
     }
   }
-
 }

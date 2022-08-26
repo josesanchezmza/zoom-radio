@@ -1,48 +1,57 @@
-ion-content {
-}
-
-.flex-container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.main-card {
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
-  width: 1016px;
-  height: 556px;
-  margin-inline: 10px;
-
-  ion-grid {
-    border-radius: 12px;
+@media only screen and (min-width: 768px) {
+  ion-row.main-row {
     height: 100%;
-    ion-row{
-      height: 100%;
-    }
-    .right-col {
-      background: #1F2937;
-    }
-    .left-col{
-      background: #6D28D9;
-    };
-
   }
 }
 
-.radio-player{
+@media only screen and (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+}
+
+ion-grid {
+  height: 100%;
+
+  ion-row.main-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ion-row.sub-row {
+    min-height: 556px;
+    ion-row {
+      background: red;
+      border: 1px solid black;
+    }
+  }
+
+  ion-col.right-col {
+    background: #1f2937;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  ion-col.left-col {
+    background: #6d28d9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+.radio-player {
   padding: 15px;
   color: white;
   display: flex;
   align-items: center;
-  height: 76px;
-  width: 428px;
+  //height: 76px;
+  //width: 428px;
   border-radius: 12px;
   overflow: hidden;
   background: black;
-  //opacity: 30%;
+  opacity: 30%;
   .play-button {
     display: flex;
     align-items: center;
@@ -52,11 +61,11 @@ ion-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    h3{
-      margin: -5px
+    h3 {
+      margin: -5px;
     }
-    h5{
-      margin: -5px
+    h5 {
+      margin: -5px;
     }
   }
 }

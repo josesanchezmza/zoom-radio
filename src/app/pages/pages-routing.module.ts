@@ -7,24 +7,25 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
+        loadChildren: () =>
+          import('./home/home.module').then((m) => m.HomePageModule),
       },
       {
         path: '',
         redirectTo: '/home',
-        pathMatch: 'full'
-      }
-    ]
+        pathMatch: 'full',
+      },
+    ],
   },
   {
     path: '**',
     redirectTo: '/home',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class PagesRoutingModule { }
+export class PagesRoutingModule {}
