@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-play-button',
@@ -9,7 +9,7 @@ export class PlayButtonComponent {
   @Input() isStreaming: boolean;
   @Output() btnClick = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
   onClick() {
     this.btnClick.emit();

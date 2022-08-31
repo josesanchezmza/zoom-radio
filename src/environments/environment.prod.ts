@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  radioURL: 'http://109.169.76.104:16285/;',
+  radioURL: 'http://radio01.ferozo.com:9264/;stream/1',
   telegramURL: 'https://t.me/ZOOMRADIOMLG',
-  phoneNumber: '+54 9 260 423 8630'
+  phoneNumber: '+54 9 260 423 8630',
 };

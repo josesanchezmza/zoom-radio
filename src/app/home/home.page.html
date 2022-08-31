@@ -4,10 +4,16 @@
       <ion-img src="../assets/zoom-radio-logo.svg"></ion-img>
     </ion-row>
     <ion-row class="ion-justify-content-center row2 row-align-center">
-      <app-play-button [isStreaming]="isStreaming" (btnClick)="playRadio()"></app-play-button>
-      <audio #player
-             src="http://radio01.ferozo.com:9264/;stream/1"
-             type="audio/mp3"> Tu navegador no soporte la etiqueta de <code>audio</code>.
+      <app-play-button
+        [isStreaming]="isStreaming"
+        (btnClick)="playRadio()"
+      ></app-play-button>
+      <audio
+        #player
+        src="http://radio01.ferozo.com:9264/;stream/1"
+        type="audio/mp3"
+      >
+        Tu navegador no soporte la etiqueta de <code>audio</code>.
       </audio>
     </ion-row>
     <ion-row class="ion-justify-content-center row3 row-align-center">
@@ -16,21 +22,41 @@
           <ion-icon [name]="setIcon(isMuted)"></ion-icon>
         </ion-button>
         <ion-chip>
-          <ion-range [ticks]="true" [snaps]="true" [min]="0" [max]="1" [step]="0.1" [value]="1" (ionChange)="onIonChange($event)"></ion-range>
+          <ion-range
+            [ticks]="true"
+            [snaps]="true"
+            [min]="0"
+            [max]="1"
+            [step]="0.1"
+            [value]="1"
+            (ionChange)="onIonChange($event)"
+          ></ion-range>
         </ion-chip>
       </ion-col>
     </ion-row>
     <ion-row class="ion-justify-content-center row4 row-align-center">
       <ion-col size-xs="12" size-md="3" class="ion-text-center">
-        <ion-button expand="block" shape="round"
-                    [href]="telegramURL" target="_blank">
-          <ion-img class="telegram-img" src="assets/icon/telegram-icon.svg" alt=""></ion-img>
+        <ion-button
+          expand="block"
+          shape="round"
+          [href]="telegramURL"
+          target="_blank"
+        >
+          <ion-img
+            class="telegram-img"
+            src="assets/icon/telegram-icon.svg"
+            alt=""
+          ></ion-img>
           <span>ZOOMRADIOMLG</span>
         </ion-button>
       </ion-col>
       <ion-col size-xs="12" size-md="3" class="ion-text-center">
-        <ion-button expand="block"  shape="round"
-                    [href]="'tel:'+phoneNumber" target="_blank">
+        <ion-button
+          expand="block"
+          shape="round"
+          [href]="'tel:'+phoneNumber"
+          target="_blank"
+        >
           <ion-icon class="call-icon" name="call-outline"></ion-icon>
           <span>{{phoneNumber}}</span>
         </ion-button>
