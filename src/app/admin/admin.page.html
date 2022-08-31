@@ -43,6 +43,23 @@
           </ion-card-content>
         </ion-card>
       </ion-col>
+      <ion-col size-lg="6" size-xs="12">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-item>
+                <ion-label>src: </ion-label>
+                <ion-input #input placeholder=" . . . "></ion-input>
+              </ion-item>
+            </ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <audio *ngIf="input.value" controls [src]="input.value" type="audio/mp3">
+              Tu navegador no soporte la etiqueta de <code>audio</code>.
+            </audio>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>
