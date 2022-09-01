@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  radioURL: 'http://radio01.ferozo.com:9264/;stream/1;',
+  radioURL: 'https://radio01.ferozo.com/proxy/ra01000750?mp=/stream',
   telegramURL: 'https://t.me/ZOOMRADIOMLG',
   phoneNumber: '+54 9 260 423 8630',
 };

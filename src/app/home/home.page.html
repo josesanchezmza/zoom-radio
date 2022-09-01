@@ -8,11 +8,7 @@
         [isStreaming]="isStreaming"
         (btnClick)="playRadio()"
       ></app-play-button>
-      <audio
-        #player
-        src="http://radio01.ferozo.com:9264/;stream/1"
-        type="audio/mp3"
-      >
+      <audio #player [src]="radioURL" type="audio/mp3">
         Tu navegador no soporte la etiqueta de <code>audio</code>.
       </audio>
     </ion-row>
@@ -63,5 +59,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <!--  <lottie-player class="lottie-back" src="https://assets9.lottiefiles.com/packages/lf20_nevctvni.json"  background="transparent"  speed="0.5"  loop  autoplay></lottie-player>-->
 </ion-content>
