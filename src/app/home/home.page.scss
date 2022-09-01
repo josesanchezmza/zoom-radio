@@ -5,67 +5,71 @@ ion-content {
 .lottie-back {
   position: absolute;
   top: -10px;
-  transform: rotate(90deg) scale(2,1.8);
+  transform: rotate(90deg) scale(2, 1.8);
   z-index: -9;
 }
 
-.row-align-center{
+.row-align-center {
   display: flex;
   align-content: center;
 }
 
-.row1{
+.row1 {
   height: 30%;
   align-content: end;
+  ion-img {
+    width: 300px;
   }
+}
 
-.row2{
+.row2 {
   height: 40%;
-  }
+}
 
-.row3{
+.row3 {
   height: 10%;
-  }
+}
 
-.row4{
+.row4 {
   height: 20%;
-  }
+}
 
-ion-grid{
-   height: 100%;
+ion-grid {
+  height: 100%;
+  background: #1e2023;
 }
 
 .volume {
   position: relative;
   display: flex;
   align-items: center;
-  ion-chip{
+  ion-chip {
     width: 100%;
   }
-  .mute-button{
+  .mute-button {
     position: absolute;
     width: 50px;
     height: 50px;
     z-index: 9;
-    ion-icon{
+    ion-icon {
       margin: -5px;
       font-size: 28px;
     }
   }
 }
 
-.title  {
+.title {
   font-family: THE_BOLD_FONT, serif;
   font-size: 70px;
   text-align: center;
 }
 
-.telegram-img{
+.telegram-img {
   height: 22px;
   width: 22px;
   margin-inline: 5px;
 }
 
-.call-icon{
+.call-icon {
   margin-inline: 5px;
 }

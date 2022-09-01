@@ -4,9 +4,10 @@
 
 export const environment = {
   production: false,
-  radioURL: 'http://109.169.76.104:16285/;',
+  radioURL: 'https://radio01.ferozo.com/proxy/ra01000750?mp=/stream',
+  radioInfo: 'https://radio01.ferozo.com:2199/rpc/ra01000750/streaminfo.get',
   telegramURL: 'https://t.me/ZOOMRADIOMLG',
-  phoneNumber: '+54 9 260 423 8630'
+  phoneNumber: '+54 9 260 423 8630',
 };
 
 /*
@@ -16,8 +17,3 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.
-
-// <source src="http://shaincast.caster.fm:34675/listen.mp3?authn762313e0c3dd57eb5d95882c847cf8b4" type="audio/mpeg">
-// <source src="http://78.129.185.84:21254/;.aac" type="audio/aac">
-// <source src="http://78.129.185.84:21254/;.mp3" type="audio/mpeg">
