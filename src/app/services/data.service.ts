@@ -50,6 +50,7 @@ import { environment } from '../../environments/environment';
 export class DataService {
   radioInfoUrl = environment.radioInfo;
   radioData: RadioInfo;
+  isStreaming = false;
 
   constructor(private http: HttpClient) {}
 
