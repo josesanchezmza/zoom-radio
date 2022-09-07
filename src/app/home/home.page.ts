@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { RangeValue } from '@ionic/core';
 import { RangeCustomEvent } from '@ionic/angular';
-import { DataService } from '../services/data.service';
+import { DataService, Datum, RadioInfo } from '../services/data.service';
 import { interval } from 'rxjs';
 import { map, mergeMap } from 'rxjs/operators';
 
@@ -13,28 +13,30 @@ import { map, mergeMap } from 'rxjs/operators';
 })
 export class HomePage implements OnInit {
   @ViewChild('player') player: ElementRef;
-  isStreaming = false;
+  // this.dataService.isStreaming = false;
   isMuted = false;
   radioURL = environment.radioURL;
   telegramURL = environment.telegramURL;
   phoneNumber = environment.phoneNumber;
   lastEmittedValue: RangeValue;
   listeners: any;
+  radioInfo: Datum;
 
   constructor(private dataService: DataService) {}
 
   ngOnInit() {
     this.getRadioInfo();
-    this.updateRadioInfo(2 * 60 * 1000);
+    // this.updateRadioInfo(2 * 60 * 1000);
+    this.updateRadioInfo(5000);
   }
 
   playRadio() {
-    this.isStreaming = !this.isStreaming;
-    if (this.isStreaming) {
-      this.player.nativeElement.play();
-    } else {
+    if (this.dataService.isStreaming) {
       this.player.nativeElement.pause();
+    } else {
+      this.player.nativeElement.play();
     }
+    this.dataService.isStreaming = !this.dataService.isStreaming;
   }
 
   onIonChange(ev: Event) {
@@ -71,8 +73,19 @@ export class HomePage implements OnInit {
     //   });
 
     this.dataService.getRadioInfo().subscribe(({ data }) => {
+      this.radioInfo = data[0];
       this.listeners = data[0].listeners;
-      console.log('getRadioInfo: ', this.listeners);
+      console.log('RadioInfo: ', this.radioInfo);
+      if (
+        //TODO: REVISAR LOGICA PARA CAMBIAR EL SRC DEL AUDIO PLAYER TENIENDO EN CUENTA LA DATA OBTENIDA DEL WEB SERVICE
+        this.radioInfo.autodj &&
+        this.radioInfo.autodj === 'Activo' &&
+        this.radioInfo.source === 'No'
+      ) {
+        this.radioURL = environment.autoDjURL;
+      } else {
+        this.radioURL = environment.radioURL;
+      }
     });
   }
 }

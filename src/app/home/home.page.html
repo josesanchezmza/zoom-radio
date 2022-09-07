@@ -5,7 +5,6 @@
     </ion-row>
     <ion-row class="ion-justify-content-center row2 row-align-center">
       <app-play-button
-        [isStreaming]="isStreaming"
         (btnClick)="playRadio()"
       ></app-play-button>
       <audio #player [src]="radioURL" type="audio/mp3">
