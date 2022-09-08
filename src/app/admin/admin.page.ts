@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
   styleUrls: ['./admin.page.scss'],
 })
 export class AdminPage implements OnInit {
-  radioUrlSrc = '';
+  logged = false;
   radioUrl = environment.radioURL;
   radioUrl2 = '//radio01.ferozo.com:9264/;stream/1;';
   radioUrl3 =
@@ -16,4 +16,8 @@ export class AdminPage implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  checkPass(password) {
+    this.logged = password === '321987654';
+  }
 }
