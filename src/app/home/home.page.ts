@@ -36,9 +36,9 @@ export class HomePage implements AfterViewInit, OnDestroy {
     if (value !== null) {
       this.isNetworkOnline = value;
       if (!this.isNetworkOnline) {
-        this.presentNetworkAlert();
+        this.presentNetworkAlert().then();
       } else if (this.isNetworkOnline && this.isAlertCreated) {
-        this.alertController.dismiss(null, 'cancel');
+        this.alertController.dismiss(null, 'cancel').then();
       }
     }
   });
