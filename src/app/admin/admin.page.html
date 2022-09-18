@@ -1,119 +1,78 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>admin</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ng-container *ngIf="!logged">
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>password: </ion-label>
+        <ion-input #passInput></ion-input>
+      </ion-item>
+      <ion-button (click)="checkPass(passInput.value)">OK</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ng-container>
+<ng-container *ngIf="logged">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>admin</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-<ion-content>
-  <div class="cc_player" data-username="ra01000750">
-    <div>
-      <div id="cc_jplayer_1" class="jp-jplayer" style="width: 0px; height: 0px">
-        <img
-          id="jp_poster_0"
-          style="width: 0px; height: 0px; display: none"
-        /><audio
-          id="jp_audio_0"
-          preload="none"
-          src="http://radio01.ferozo.com:9264/stream"
-          title="ZOOM RADIO"
-        ></audio>
-      </div>
-      <div
-        id="cc_jp_container_1"
-        class="jp-audio-stream jp-state-playing jp-state-muted"
-        role="application"
-        aria-label="media player"
-      >
-        <div class="jp-type-single">
-          <div class="jp-gui jp-interface">
-            <div class="jp-controls">
-              <button class="jp-play" role="button" tabindex="0">play</button>
-            </div>
-            <div class="jp-volume-controls">
-              <button class="jp-mute" role="button" tabindex="0">mute</button
-              ><button class="jp-volume-max" role="button" tabindex="0">
-                max volume
-              </button>
-              <div class="jp-volume-bar">
-                <div class="jp-volume-bar-value" style="width: 0%"></div>
-              </div>
-            </div>
-          </div>
-          <div class="jp-details">
-            <div class="jp-title" aria-label="title">ZOOM RADIO</div>
-          </div>
-          <div class="jp-no-solution" style="display: none">
-            To play the media you will need to either update your browser to a
-            recent version or update your Flash plugin.
-          </div>
-        </div>
-        <div class="jp-info-bar"></div>
-      </div>
-    </div>
-  </div>
-
-  <script language="javascript" type="text/javascript" src="https://radio01.ferozo.com:2199/system/player.js"></script>
-
-  <ion-grid>
-    <ion-row>
-      <ion-col size-lg="6" size-xs="12">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title><p>src: {{radioUrl}}</p></ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <audio controls [src]="radioUrl" type="audio/mp3">
-              Tu navegador no soporte la etiqueta de <code>audio</code>.
-            </audio>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size-lg="6" size-xs="12">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title><p>src: {{radioUrl2}}</p></ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <audio controls [src]="radioUrl2" type="audio/mp3">
-              Tu navegador no soporte la etiqueta de <code>audio</code>.
-            </audio>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size-lg="6" size-xs="12">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title><p>src: {{radioUrl3}}</p></ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <audio controls [src]="radioUrl3" type="audio/mp3">
-              Tu navegador no soporte la etiqueta de <code>audio</code>.
-            </audio>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-      <ion-col size-lg="6" size-xs="12">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-title>
-              <ion-item>
-                <ion-label>src: </ion-label>
-                <ion-input #input placeholder=" . . . "></ion-input>
-              </ion-item>
-            </ion-card-title>
-          </ion-card-header>
-          <ion-card-content>
-            <audio
-              *ngIf="input.value"
-              controls
-              [src]="input.value"
-              type="audio/mp3"
-            >
-              Tu navegador no soporte la etiqueta de <code>audio</code>.
-            </audio>
-          </ion-card-content>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size-lg="6" size-xs="12">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title><p>src: {{radioUrl}}</p></ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <audio controls [src]="radioUrl">
+                Tu navegador no soporte la etiqueta de <code>audio</code>.
+              </audio>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size-lg="6" size-xs="12">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title><p>src: {{radioUrl2}}</p></ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <audio controls [src]="radioUrl2">
+                Tu navegador no soporte la etiqueta de <code>audio</code>.
+              </audio>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size-lg="6" size-xs="12">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title><p>src: {{radioUrl3}}</p></ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <audio controls [src]="radioUrl3">
+                Tu navegador no soporte la etiqueta de <code>audio</code>.
+              </audio>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+        <ion-col size-lg="6" size-xs="12">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>
+                <ion-item>
+                  <ion-label>src: </ion-label>
+                  <ion-input #input placeholder=" . . . "></ion-input>
+                </ion-item>
+              </ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <audio *ngIf="input.value" controls [src]="input.value">
+                Tu navegador no soporte la etiqueta de <code>audio</code>.
+              </audio>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+</ng-container>

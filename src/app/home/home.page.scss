@@ -1,12 +1,59 @@
-ion-content {
-  //--background: url(../../assets/wp4018825.webp) no-repeat center/cover fixed;
+@media only screen and (max-width: 600px) {
+  .row1 {
+    margin-top: 10px;
+  }
+
+  ion-card {
+    ion-img {
+      height: 150px;
+      margin-bottom: 20px;
+    }
+
+    //max-width: 500px;
+    ion-card-subtitle {
+      font-size: 18px;
+      text-align: center;
+    }
+    ion-card-content {
+      font-size: 16px;
+      text-align: justify;
+    }
+  }
 }
 
-.lottie-back {
-  position: absolute;
-  top: -10px;
-  transform: rotate(90deg) scale(2, 1.8);
-  z-index: -9;
+@media only screen and (min-width: 600px) {
+  .row1 {
+    height: 30%;
+  }
+
+  .row2 {
+    height: 40%;
+  }
+
+  .row3 {
+    height: 10%;
+  }
+
+  .row4 {
+    height: 20%;
+  }
+
+  ion-card {
+    ion-img {
+      height: 200px;
+      margin-bottom: 20px;
+    }
+
+    max-width: 500px;
+    ion-card-subtitle {
+      font-size: 20px;
+      text-align: center;
+    }
+    ion-card-content {
+      font-size: 18px;
+      text-align: justify;
+    }
+  }
 }
 
 .row-align-center {
@@ -15,7 +62,6 @@ ion-content {
 }
 
 .row1 {
-  height: 30%;
   align-content: end;
   ion-img {
     width: 300px;
@@ -23,20 +69,21 @@ ion-content {
 }
 
 .row2 {
-  height: 40%;
 }
 
 .row3 {
-  height: 10%;
 }
 
 .row4 {
-  height: 20%;
 }
 
 ion-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   height: 100%;
   background: #1e2023;
+  padding: 20px;
 }
 
 .volume {
@@ -56,12 +103,6 @@ ion-grid {
       font-size: 28px;
     }
   }
-}
-
-.title {
-  font-family: THE_BOLD_FONT, serif;
-  font-size: 70px;
-  text-align: center;
 }
 
 .telegram-img {

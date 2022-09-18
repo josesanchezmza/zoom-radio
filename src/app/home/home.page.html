@@ -3,15 +3,33 @@
     <ion-row class="ion-justify-content-center row1 row-align-center">
       <ion-img src="../assets/zoom-radio-logo.svg"></ion-img>
     </ion-row>
+    <audio autoplay #player [src]="radioURL">
+      Tu navegador no soporte la etiqueta de <code>audio</code>.
+    </audio>
     <ion-row class="ion-justify-content-center row2 row-align-center">
-      <app-play-button
-        (btnClick)="playRadio()"
-      ></app-play-button>
-      <audio #player [src]="radioURL" type="audio/mp3">
-        Tu navegador no soporte la etiqueta de <code>audio</code>.
-      </audio>
+      <div *ngIf="canPlayRadio">
+        <app-play-button (btnClick)="playRadio()"></app-play-button>
+      </div>
+      <ion-card *ngIf="!canPlayRadio" color="dark">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-img src="../assets/disconnected.svg"></ion-img>
+          </ion-card-title>
+          <ion-card-subtitle>
+            En este momento no estamos en linea.
+          </ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          Te invitamos a sumarte a nuestro grupo de Telegram
+          <a [href]="telegramURL" target="_blank">ZoomRadioMlg</a>, donde
+          estaremos anunciando horarios de transmisión y muchas otras novedades.
+        </ion-card-content>
+      </ion-card>
     </ion-row>
-    <ion-row class="ion-justify-content-center row3 row-align-center">
+    <ion-row
+      *ngIf="canPlayRadio"
+      class="ion-justify-content-center row3 row-align-center"
+    >
       <ion-col class="volume" size-xs="12" size-md="4">
         <ion-button class="mute-button" shape="circle" (click)="mute()">
           <ion-icon [name]="setIcon(isMuted)"></ion-icon>
