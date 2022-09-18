@@ -18,28 +18,28 @@ import { DataService } from '../services/data.service';
 export class HomePage implements AfterViewInit, OnDestroy {
   @ViewChild('player') player: ElementRef;
   audioSrcError = false;
+  isAlertCreated = false;
   isPlaying = false;
   isMuted = false;
   radioURL = environment.radioURL;
   telegramURL = environment.telegramURL;
   phoneNumber = environment.phoneNumber;
   lastEmittedValue: RangeValue;
-  listeners: number;
-  offline = false;
-  isServerActive = false;
-  isSourceActive = false;
-  isNetworkOnline = false;
-  alertNetwork = this.alertController.create({
-    header: 'No tenés conexión de internet.',
-    message:
-      'Si al recuperar la conexión no escuchas la radio, recargá la página.',
-  });
+  listenersTotal: number;
+  isOffline = false;
+  isServerActive = true;
+  isSourceActive = true;
+  isAutoDjActive = false;
+  isNetworkOnline = true;
+  canPlayRadio = true;
   isNetworkSubscription = this.dataService.networkStatus$.subscribe((value) => {
-    this.isNetworkOnline = value;
-    if (!this.isNetworkOnline) {
-      this.alertNetwork.then((alert) => alert.present());
-    } else {
-      this.alertNetwork.then((alert) => alert.dismiss());
+    if (value !== null) {
+      this.isNetworkOnline = value;
+      if (!this.isNetworkOnline) {
+        this.presentNetworkAlert();
+      } else if (this.isNetworkOnline && this.isAlertCreated) {
+        this.alertController.dismiss(null, 'cancel');
+      }
     }
   });
   isPlayingSubscription = this.dataService.isPlayingAudio$.subscribe(
@@ -50,13 +50,17 @@ export class HomePage implements AfterViewInit, OnDestroy {
   radioInfoSubscription = this.dataService.radioInfo$.subscribe((radioInfo) => {
     if (radioInfo) {
       this.isServerActive = radioInfo.server === 'Activo';
+      this.isAutoDjActive = radioInfo.autodj === 'Activo';
       this.isSourceActive = radioInfo.source === 'Si';
-      this.offline = radioInfo.offline;
-      this.listeners = radioInfo.listeners;
+      this.isOffline = radioInfo.offline;
+      this.listenersTotal = radioInfo.listeners;
 
       if (!this.isServerActive && this.player) {
         this.player.nativeElement.pause();
       }
+
+      this.canPlayRadio =
+        this.isServerActive && (this.isAutoDjActive || this.isSourceActive);
     }
   });
 
@@ -65,11 +69,28 @@ export class HomePage implements AfterViewInit, OnDestroy {
     private alertController: AlertController
   ) {}
 
+  async presentNetworkAlert() {
+    const alert = await this.alertController.create({
+      header: 'Has perdido la conexión a internet.',
+      message:
+        'Si al recuperar la conexión no escuchas la radio, recarga la página.',
+    });
+
+    await alert.present();
+
+    this.isAlertCreated = true;
+  }
+
   async presentAlert() {
+    if (this.audioSrcError) {
+      return;
+    }
+
+    this.audioSrcError = true;
+
     const alert = await this.alertController.create({
       header: 'Reconectando',
-      message:
-        'Se está intentando reconectar la fuente de sonido.<hr>Si esto tarda demasiado, intenta recargar la página.',
+      message: 'Si esto tarda demasiado, intenta recargar la página.',
       buttons: ['OK'],
     });
 
@@ -79,11 +100,6 @@ export class HomePage implements AfterViewInit, OnDestroy {
       this.audioSrcError = false;
       alert.dismiss();
     }, 10000);
-  }
-
-  ngOnDestroy() {
-    this.isPlayingSubscription.unsubscribe();
-    this.radioInfoSubscription.unsubscribe();
   }
 
   playRadio() {
@@ -100,21 +116,17 @@ export class HomePage implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit() {
     this.player.nativeElement.addEventListener('error', () => {
-      if (!this.isServerActive) {
+      if (
+        !this.isServerActive ||
+        !this.isNetworkOnline ||
+        (!this.isSourceActive && !this.isAutoDjActive)
+      ) {
         return;
       }
 
-      if (!this.audioSrcError) {
-        this.presentAlert().then();
-        this.audioSrcError = true;
-      }
+      this.presentAlert().then();
 
-      setTimeout(() => {
-        this.radioURL =
-          this.player.nativeElement.currentSrc === environment.autodjURL
-            ? environment.radioURL
-            : environment.autodjURL;
-      }, 5000);
+      this.switchAudioSrc();
     });
 
     this.player.nativeElement.addEventListener('play', () => {
@@ -145,17 +157,18 @@ export class HomePage implements AfterViewInit, OnDestroy {
     }
   }
 
-  // updateRadioInfo(milliSeconds: number) {
-  //   let milliseconds = 0;
-  //   setInterval(() => {
-  //     this.dataService.getRadioInfo().subscribe(({ data }) => {
-  //       const { listeners, offline, server } = data[0];
-  //       this.listeners = listeners;
-  //       this.offline = offline;
-  //       // this.isServerActive = server === 'Activo';
-  //       this.isServerActive = false;
-  //       milliseconds = milliSeconds;
-  //     });
-  //   }, milliseconds);
-  // }
+  switchAudioSrc() {
+    setTimeout(() => {
+      this.radioURL =
+        this.player.nativeElement.currentSrc === environment.autodjURL
+          ? environment.radioURL
+          : environment.autodjURL;
+    }, 5000);
+  }
+
+  ngOnDestroy() {
+    this.isPlayingSubscription.unsubscribe();
+    this.radioInfoSubscription.unsubscribe();
+    this.isNetworkSubscription.unsubscribe();
+  }
 }
