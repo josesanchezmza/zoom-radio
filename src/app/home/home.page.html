@@ -1,12 +1,12 @@
 <ion-content [fullscreen]="true">
   <ion-grid>
-    <ion-row class="ion-justify-content-center row1 row-align-center">
-      <ion-img src="../assets/zoom-radio-logo.svg"></ion-img>
+    <ion-row class="ion-justify-content-center row-align-center">
+      <ion-img class="zoom-radio-logo" src="../assets/zoom-radio-logo.svg"></ion-img>
     </ion-row>
     <audio autoplay #player [src]="radioURL">
       Tu navegador no soporte la etiqueta de <code>audio</code>.
     </audio>
-    <ion-row class="ion-justify-content-center row2 row-align-center">
+    <ion-row class="ion-justify-content-center row-align-center">
       <div *ngIf="canPlayRadio">
         <app-play-button (btnClick)="playRadio()"></app-play-button>
       </div>
@@ -16,7 +16,7 @@
             <ion-img src="../assets/disconnected.svg"></ion-img>
           </ion-card-title>
           <ion-card-subtitle>
-            En este momento no estamos en linea.
+            Ahora no estamos en linea...
           </ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
@@ -28,7 +28,7 @@
     </ion-row>
     <ion-row
       *ngIf="canPlayRadio"
-      class="ion-justify-content-center row3 row-align-center"
+      class="ion-justify-content-center row-align-center"
     >
       <ion-col class="volume" size-xs="12" size-md="4">
         <ion-button class="mute-button" shape="circle" (click)="mute()">
@@ -47,7 +47,7 @@
         </ion-chip>
       </ion-col>
     </ion-row>
-    <ion-row class="ion-justify-content-center row4 row-align-center">
+    <ion-row class="ion-justify-content-center row-align-center">
       <ion-col size-xs="12" size-md="3" class="ion-text-center">
         <ion-button
           expand="block"

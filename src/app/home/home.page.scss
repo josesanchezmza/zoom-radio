@@ -1,15 +1,10 @@
 @media only screen and (max-width: 600px) {
-  .row1 {
-    margin-top: 10px;
-  }
-
   ion-card {
     ion-img {
       height: 150px;
       margin-bottom: 20px;
     }
 
-    //max-width: 500px;
     ion-card-subtitle {
       font-size: 18px;
       text-align: center;
@@ -19,25 +14,13 @@
       text-align: justify;
     }
   }
+
+  ion-img.zoom-radio-logo {
+    width: 300px;
+  }
 }
 
 @media only screen and (min-width: 600px) {
-  .row1 {
-    height: 30%;
-  }
-
-  .row2 {
-    height: 40%;
-  }
-
-  .row3 {
-    height: 10%;
-  }
-
-  .row4 {
-    height: 20%;
-  }
-
   ion-card {
     ion-img {
       height: 200px;
@@ -54,6 +37,10 @@
       text-align: justify;
     }
   }
+
+  ion-img.zoom-radio-logo {
+    width: 400px;
+  }
 }
 
 .row-align-center {
@@ -61,27 +48,13 @@
   align-content: center;
 }
 
-.row1 {
-  align-content: end;
-  ion-img {
-    width: 300px;
-  }
-}
 
-.row2 {
-}
-
-.row3 {
-}
-
-.row4 {
-}
 
 ion-grid {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  justify-content: space-around;
+  height: 100vh;
   background: #1e2023;
   padding: 20px;
 }
