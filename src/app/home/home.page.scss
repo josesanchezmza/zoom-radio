@@ -1,12 +1,46 @@
-ion-content {
-  //--background: url(../../assets/wp4018825.webp) no-repeat center/cover fixed;
+@media only screen and (max-width: 600px) {
+  ion-card {
+    ion-img {
+      height: 150px;
+      margin-bottom: 20px;
+    }
+
+    ion-card-subtitle {
+      font-size: 18px;
+      text-align: center;
+    }
+    ion-card-content {
+      font-size: 16px;
+      text-align: justify;
+    }
+  }
+
+  ion-img.zoom-radio-logo {
+    width: 300px;
+  }
 }
 
-.lottie-back {
-  position: absolute;
-  top: -10px;
-  transform: rotate(90deg) scale(2, 1.8);
-  z-index: -9;
+@media only screen and (min-width: 600px) {
+  ion-card {
+    ion-img {
+      height: 200px;
+      margin-bottom: 20px;
+    }
+
+    max-width: 500px;
+    ion-card-subtitle {
+      font-size: 20px;
+      text-align: center;
+    }
+    ion-card-content {
+      font-size: 18px;
+      text-align: justify;
+    }
+  }
+
+  ion-img.zoom-radio-logo {
+    width: 400px;
+  }
 }
 
 .row-align-center {
@@ -14,29 +48,15 @@ ion-content {
   align-content: center;
 }
 
-.row1 {
-  height: 30%;
-  align-content: end;
-  ion-img {
-    width: 300px;
-  }
-}
 
-.row2 {
-  height: 40%;
-}
-
-.row3 {
-  height: 10%;
-}
-
-.row4 {
-  height: 20%;
-}
 
 ion-grid {
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
   background: #1e2023;
+  padding: 20px;
 }
 
 .volume {
@@ -56,12 +76,6 @@ ion-grid {
       font-size: 28px;
     }
   }
-}
-
-.title {
-  font-family: THE_BOLD_FONT, serif;
-  font-size: 70px;
-  text-align: center;
 }
 
 .telegram-img {
