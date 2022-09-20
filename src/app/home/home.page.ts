@@ -23,6 +23,8 @@ export class HomePage implements AfterViewInit, OnDestroy {
   isMuted = false;
   radioURL = environment.radioURL;
   telegramURL = environment.telegramURL;
+  whatsAppURL = environment.whatsAppURL;
+  facebookURL = environment.facebookURL;
   phoneNumber = environment.phoneNumber;
   lastEmittedValue: RangeValue;
   listenersTotal: number;
