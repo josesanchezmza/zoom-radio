@@ -52,7 +52,7 @@ import { environment } from '../../environments/environment';
 export class DataService {
   radioInfoUrl = environment.radioInfo;
   isStreaming = false;
-  private netWorkStatus$ = new BehaviorSubject<boolean>(null);
+  private isNetworkOnline$ = new BehaviorSubject<boolean>(null);
   private isPlaying$ = new BehaviorSubject<boolean>(null);
   private radioInfoOb$ = new BehaviorSubject<RadioInfo>(null);
 
@@ -63,7 +63,7 @@ export class DataService {
   }
 
   get networkStatus$(): Observable<boolean> {
-    return this.netWorkStatus$.asObservable();
+    return this.isNetworkOnline$.asObservable();
   }
   get isPlayingAudio$(): Observable<boolean> {
     return this.isPlaying$.asObservable();
@@ -73,7 +73,7 @@ export class DataService {
   }
 
   setNetworkStatus(value: boolean) {
-    this.netWorkStatus$.next(value);
+    this.isNetworkOnline$.next(value);
   }
 
   setPlayingValue(value: boolean) {

@@ -9,8 +9,8 @@ describe('AudioPlayerComponent', () => {
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ AudioPlayerComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [AudioPlayerComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
     fixture = TestBed.createComponent(AudioPlayerComponent);

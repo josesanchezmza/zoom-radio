@@ -1,2 +1,39 @@
-<h1>Is Playing: {{ isPlaying }}</h1>
-<ion-button (click)="togglePlayer()">PLAY RADIO</ion-button>
+<div class="button-container" *ngIf="!isPlaying">
+  <a class="video-play-button" (click)="togglePlayer()">
+    <span></span>
+  </a>
+</div>
+
+<div class="main-container" *ngIf="isPlaying">
+  <div class="container" (click)="togglePlayer()">
+    <div style="background: #c20054" class="bar"></div>
+    <div style="background: #b8005e" class="bar"></div>
+    <div style="background: #ae0067" class="bar"></div>
+    <div style="background: #a50071" class="bar"></div>
+    <div style="background: #9b007a" class="bar"></div>
+    <div style="background: #910084" class="bar"></div>
+    <div style="background: #87008e" class="bar"></div>
+    <div style="background: #7d0097" class="bar"></div>
+    <div style="background: #7300a1" class="bar"></div>
+    <div style="background: #6a00aa" class="bar"></div>
+    <div style="background: #6000b4" class="bar"></div>
+    <div style="background: #5600bd" class="bar"></div>
+    <div style="background: #4c00c7" class="bar"></div>
+  </div>
+
+  <div class="volume-container">
+    <ion-button class="mute-button" shape="circle" (click)="mute()">
+      <ion-icon [name]="setIcon(isMuted)"></ion-icon>
+    </ion-button>
+    <ion-chip>
+      <ion-range
+        [ticks]="true"
+        [min]="0"
+        [max]="1"
+        [step]="0.05"
+        [value]="1"
+        (ionChange)="onIonChange($event)"
+      ></ion-range>
+    </ion-chip>
+  </div>
+</div>
