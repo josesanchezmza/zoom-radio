@@ -40,8 +40,7 @@ export class HomePage implements OnDestroy {
         this.player.nativeElement.pause();
       }
 
-      this.canPlayRadio =
-        this.isServerActive && (this.isAutoDjActive || this.isSourceActive);
+      this.canPlayRadio = this.isServerActive && this.isSourceActive;
     }
   });
 

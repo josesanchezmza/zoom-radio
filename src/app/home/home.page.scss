@@ -31,22 +31,6 @@
     margin: 0;
   }
 
-  ion-card {
-    ion-img {
-      height: 150px;
-      margin-bottom: 20px;
-    }
-
-    ion-card-subtitle {
-      font-size: 18px;
-      text-align: center;
-    }
-    ion-card-content {
-      font-size: 16px;
-      text-align: justify;
-    }
-  }
-
   ion-img.zoom-radio-logo {
     width: 300px;
   }
@@ -55,23 +39,6 @@
 @media only screen and (min-width: 720px) {
   .social-media-list {
     display: none;
-  }
-
-  ion-card {
-    ion-img {
-      height: 200px;
-      margin-bottom: 20px;
-    }
-
-    max-width: 500px;
-    ion-card-subtitle {
-      font-size: 20px;
-      text-align: center;
-    }
-    ion-card-content {
-      font-size: 18px;
-      text-align: justify;
-    }
   }
 
   ion-img.zoom-radio-logo {
@@ -124,5 +91,19 @@ ion-grid {
       font-size: 20px;
       font-weight: 500;
     }
+  }
+}
+
+ion-card {
+  max-width: 400px;
+  min-width: 250px;
+
+  ion-card-title {
+    font-size: 20px;
+    text-align: center;
+  }
+  ion-card-content {
+    font-size: 18px;
+    text-align: justify;
   }
 }

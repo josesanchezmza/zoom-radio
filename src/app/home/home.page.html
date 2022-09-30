@@ -11,7 +11,25 @@
       style="height: 250px"
       class="ion-justify-content-center row-align-center"
     >
-      <app-audio-player style="height: 100%"></app-audio-player>
+      <app-audio-player
+        *ngIf="canPlayRadio"
+        style="height: 100%"
+      ></app-audio-player>
+      <ion-card *ngIf="!canPlayRadio">
+        <ion-card-header>
+          <ion-card-title
+            ><ion-icon name="mic-off-outline"></ion-icon> Estamos
+            Offline</ion-card-title
+          >
+        </ion-card-header>
+
+        <ion-card-content>
+          Para enterarte de todas las novedades, te invitamos a unirte a nuestro
+          grupo de WhatsApp
+          <a [href]="whatsAppURL" target="_blank">Zaoom Radio</a> y a visitarnos
+          en Facebook <a [href]="facebookURL" target="_blank">ZoomRadio.Mlg</a>.
+        </ion-card-content>
+      </ion-card>
     </ion-row>
     <ion-row class="ion-justify-content-center row-align-center">
       <ion-col
