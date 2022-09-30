@@ -15,18 +15,19 @@
         *ngIf="canPlayRadio"
         style="height: 100%"
       ></app-audio-player>
-      <ion-card *ngIf="!canPlayRadio">
+      <ion-card color="dark" *ngIf="!canPlayRadio">
         <ion-card-header>
-          <ion-card-title
-            ><ion-icon name="mic-off-outline"></ion-icon> Estamos
-            Offline</ion-card-title
-          >
+          <ion-card-title>
+            <ion-icon name="mic-off-outline"></ion-icon>
+            Estamos Offline
+            <ion-icon name="wifi-outline"></ion-icon>
+          </ion-card-title>
         </ion-card-header>
 
         <ion-card-content>
           Para enterarte de todas las novedades, te invitamos a unirte a nuestro
           grupo de WhatsApp
-          <a [href]="whatsAppURL" target="_blank">Zaoom Radio</a> y a visitarnos
+          <a [href]="whatsAppURL" target="_blank">Zoom Radio</a> y a visitarnos
           en Facebook <a [href]="facebookURL" target="_blank">ZoomRadio.Mlg</a>.
         </ion-card-content>
       </ion-card>

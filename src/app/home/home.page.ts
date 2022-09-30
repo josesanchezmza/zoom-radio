@@ -10,9 +10,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnDestroy {
-  @ViewChild('player') player: ElementRef;
   isNetworkOnline = true;
-  isPlaying = false;
   whatsAppURL = environment.whatsAppURL;
   phoneNumber = environment.phoneNumber;
   facebookURL = environment.facebookURL;
@@ -23,11 +21,6 @@ export class HomePage implements OnDestroy {
   isSourceActive = true;
   isAutoDjActive = false;
   canPlayRadio = true;
-  isPlayingSubscription = this.dataService.isPlayingAudio$.subscribe(
-    (isPlaying) => {
-      this.isPlaying = isPlaying;
-    }
-  );
   radioInfoSubscription = this.dataService.radioInfo$.subscribe((radioInfo) => {
     if (radioInfo) {
       this.isServerActive = radioInfo.server === 'Activo';
@@ -36,8 +29,8 @@ export class HomePage implements OnDestroy {
       this.isRadioOffline = radioInfo.offline;
       this.listenersTotal = radioInfo.listeners;
 
-      if (!this.isServerActive && this.player) {
-        this.player.nativeElement.pause();
+      if (!this.isServerActive) {
+        this.dataService.setPlayingValue(false);
       }
 
       this.canPlayRadio = this.isServerActive && this.isSourceActive;
@@ -50,7 +43,6 @@ export class HomePage implements OnDestroy {
   ) {}
 
   ngOnDestroy() {
-    this.isPlayingSubscription.unsubscribe();
     this.radioInfoSubscription.unsubscribe();
   }
 }
