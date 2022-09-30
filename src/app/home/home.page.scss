@@ -34,6 +34,14 @@
   ion-img.zoom-radio-logo {
     width: 300px;
   }
+
+  .contact-image {
+    height: 60px;
+  }
+
+  .volume-row {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: 720px) {
@@ -43,6 +51,10 @@
 
   ion-img.zoom-radio-logo {
     width: 400px;
+  }
+
+  .contact-image {
+    height: 100px;
   }
 }
 
@@ -106,4 +118,10 @@ ion-card {
     font-size: 18px;
     text-align: justify;
   }
+}
+
+.contact-column {
+  padding: 5px 0;
+  display: flex;
+  justify-content: center;
 }
