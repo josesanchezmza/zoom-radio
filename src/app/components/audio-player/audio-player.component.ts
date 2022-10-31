@@ -23,17 +23,17 @@ export class AudioPlayerComponent implements OnDestroy {
       this.isPlaying = isPlaying;
     }
   );
-  radioInfoSubscription = this.dataService.radioInfo$.subscribe((radioInfo) => {
-    if (radioInfo) {
-      const isServerActive = radioInfo.server === 'Activo';
-      const isSourceActive = radioInfo.source === 'Si';
-      if (this.player) {
-        if (!isServerActive || !isSourceActive) {
-          this.player.stop();
-        }
-      }
-    }
-  });
+  // radioInfoSubscription = this.dataService.radioInfo$.subscribe((radioInfo) => {
+  //   if (radioInfo) {
+  //     const isServerActive = radioInfo.server === 'Activo';
+  //     const isSourceActive = radioInfo.source === 'Si';
+  //     if (this.player) {
+  //       if (!isServerActive || !isSourceActive) {
+  //         this.player.stop();
+  //       }
+  //     }
+  //   }
+  // });
 
   constructor(
     private dataService: DataService,

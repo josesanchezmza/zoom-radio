@@ -50,15 +50,15 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class DataService {
-  radioInfoUrl = environment.radioInfo;
+  // radioInfoUrl = environment.radioInfo;
   isStreaming = false;
   private isNetworkOnline$ = new BehaviorSubject<boolean>(null);
   private isPlaying$ = new BehaviorSubject<boolean>(null);
-  private radioInfoOb$ = new BehaviorSubject<RadioInfo>(null);
+  // private radioInfoOb$ = new BehaviorSubject<RadioInfo>(null);
 
   constructor(private http: HttpClient) {
-    this.getRadioInfo();
-    this.updateRadioInfo();
+    // this.getRadioInfo();
+    // this.updateRadioInfo();
     this.checkNetworkStatus();
   }
 
@@ -68,9 +68,9 @@ export class DataService {
   get isPlayingAudio$(): Observable<boolean> {
     return this.isPlaying$.asObservable();
   }
-  get radioInfo$(): Observable<RadioInfo> {
-    return this.radioInfoOb$.asObservable();
-  }
+  // get radioInfo$(): Observable<RadioInfo> {
+  //   return this.radioInfoOb$.asObservable();
+  // }
 
   setNetworkStatus(value: boolean) {
     this.isNetworkOnline$.next(value);
@@ -80,31 +80,31 @@ export class DataService {
     this.isPlaying$.next(value);
   }
 
-  setRadioInfo(data: RadioInfo) {
-    this.radioInfoOb$.next(data);
-  }
+  // setRadioInfo(data: RadioInfo) {
+  //   this.radioInfoOb$.next(data);
+  // }
 
-  getRadioInfo() {
-    this.getRadioData().subscribe(({ data }) => {
-      const { listeners, offline, server, source } = data[0];
-      const radioData = {
-        listeners,
-        offline,
-        server,
-        source,
-      };
-      this.setRadioInfo(radioData);
-    });
-  }
-  updateRadioInfo() {
-    setInterval(() => {
-      this.getRadioInfo();
-    }, 2 * 60 * 1000);
-  }
+  // getRadioInfo() {
+  //   this.getRadioData().subscribe(({ data }) => {
+  //     const { listeners, offline, server, source } = data[0];
+  //     const radioData = {
+  //       listeners,
+  //       offline,
+  //       server,
+  //       source,
+  //     };
+  //     this.setRadioInfo(radioData);
+  //   });
+  // }
+  // updateRadioInfo() {
+  //   setInterval(() => {
+  //     this.getRadioInfo();
+  //   }, 2 * 60 * 1000);
+  // }
 
-  getRadioData() {
-    return this.http.get<RadioResponse>(this.radioInfoUrl);
-  }
+  // getRadioData() {
+  //   return this.http.get<RadioResponse>(this.radioInfoUrl);
+  // }
 
   checkNetworkStatus() {
     window.addEventListener('load', () => {
@@ -112,7 +112,7 @@ export class DataService {
 
       window.addEventListener('online', () => {
         this.setNetworkStatus(true);
-        this.getRadioInfo();
+        // this.getRadioInfo();
       });
 
       window.addEventListener('offline', () => {

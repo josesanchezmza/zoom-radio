@@ -21,21 +21,21 @@ export class HomePage implements OnDestroy {
   isSourceActive = true;
   isAutoDjActive = false;
   canPlayRadio = true;
-  radioInfoSubscription = this.dataService.radioInfo$.subscribe((radioInfo) => {
-    if (radioInfo) {
-      this.isServerActive = radioInfo.server === 'Activo';
-      this.isAutoDjActive = radioInfo.autodj === 'Activo';
-      this.isSourceActive = radioInfo.source === 'Si';
-      this.isRadioOffline = radioInfo.offline;
-      this.listenersTotal = radioInfo.listeners;
-
-      if (!this.isServerActive) {
-        this.dataService.setPlayingValue(false);
-      }
-
-      this.canPlayRadio = this.isServerActive && this.isSourceActive;
-    }
-  });
+  // radioInfoSubscription = this.dataService.radioInfo$.subscribe((radioInfo) => {
+  //   if (radioInfo) {
+  //     this.isServerActive = radioInfo.server === 'Activo';
+  //     this.isAutoDjActive = radioInfo.autodj === 'Activo';
+  //     this.isSourceActive = radioInfo.source === 'Si';
+  //     this.isRadioOffline = radioInfo.offline;
+  //     this.listenersTotal = radioInfo.listeners;
+  //
+  //     if (!this.isServerActive) {
+  //       this.dataService.setPlayingValue(false);
+  //     }
+  //
+  //     this.canPlayRadio = this.isServerActive && this.isSourceActive;
+  //   }
+  // });
 
   constructor(
     private dataService: DataService,
@@ -43,6 +43,6 @@ export class HomePage implements OnDestroy {
   ) {}
 
   ngOnDestroy() {
-    this.radioInfoSubscription.unsubscribe();
+    // this.radioInfoSubscription.unsubscribe();
   }
 }
